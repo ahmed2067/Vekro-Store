@@ -1,34 +1,25 @@
 # VEKRO STORE
 
-Arabic RTL storefront starter built with Node.js, Express, and plain HTML/CSS/JS.
+Arabic RTL storefront built with Node.js 20+ and Express.
+
+## Current features
+- Responsive storefront, product search, categories, cart and cash-on-delivery checkout.
+- Server-side Safka API proxy. The API key must remain in server environment variables.
+- The Safka public API authenticates with `api-safka-key`; public routes are under `/api/v1/public`.
 
 ## Run locally
-
-1. Install Node.js 20 or newer.
+1. Install Node.js 20+.
 2. Run `npm install`.
-3. Copy `.env.example` to `.env`.
-4. Fill the server-side Safka environment values (see below).
-5. Run `npm start` and open `http://localhost:3000`.
+3. Copy `.env.example` to `.env` and set the values.
+4. Run `npm start`.
 
-## Safka configuration
+## Required deployment settings
+Set `SESSION_SECRET` (random, 32+ characters), `ADMIN_EMAIL`, `ADMIN_PASSWORD` (12+ characters), `NODE_ENV=production`, and `DATA_DIR` to persistent storage. Never commit `.env` or expose the Safka API key.
 
-The public API uses the `api-safka-key` request header and its public endpoints live under `/api/v1/public`. Configure these server environment variables:
-
-- `SAFKA_API_BASE_URL`: the API host shown in Safka's official docs/dashboard.
-- `SAFKA_API_KEY`: secret key. Never commit it or expose it to browser code.
-- `SAFKA_PRODUCTS_PATH`: exact product-list path from the API docs.
-- `SAFKA_CREATE_ORDER_PATH`: exact order-creation path from the API docs.
-
-The API adapter deliberately requires the exact endpoint paths to be configured. The product response normalization and order body in the starter are provisional; verify the exact response and payload schemas against Safka's current documentation before enabling live customer orders. Test with a sandbox/test account first. No real order has been placed by this repository setup.
+## Safka integration status
+Set `SAFKA_API_BASE_URL`, `SAFKA_API_KEY`, and the exact `SAFKA_PRODUCTS_PATH` from the official API reference. Product import must be tested against your Safka account. The exact order-creation schema has not been verified, so the app must not submit live orders until that is confirmed.
 
 Official docs: https://public-api-docs.safka-eg.com/
 
-## Current scope
-
-- Responsive Arabic storefront layout
-- Product search and category filters
-- Cart and checkout form
-- Server-side Safka proxy (API key stays on the server)
-- Health endpoint at `/api/health`
-
-Customer accounts, persistent database, order tracking, and an admin dashboard are not implemented yet. They should be added with server-side authentication and a database before public launch.
+## Deployment
+Pushing to GitHub does not itself publish a live website. A Node.js hosting service, environment variables, and persistent storage are required. The JSON-file prototype is not suitable for a high-volume production store; use a managed database before scaling.
