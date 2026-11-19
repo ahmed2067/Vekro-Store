@@ -50,6 +50,7 @@
   <section id="checkoutPanel" class="panel hidden"><h2>بيانات التوصيل</h2><p style="color:#64748b">الدفع عند الاستلام — لن يُرسل الطلب إلا بعد تأكيدك.</p>
     <form id="checkoutForm"><div class="tools"><input name="name" placeholder="الاسم بالكامل" required><input name="phone" placeholder="رقم الهاتف" required></div><textarea name="address" placeholder="العنوان بالتفصيل" required rows="3"></textarea><p><button type="submit">تأكيد الطلب</button></p></form>
   </section>
+  <section class="panel" id="tracking"><h2>تتبّع طلبك</h2><p style="color:#64748b">أدخل رقم الطلب ورقم الهاتف المستخدم عند الشراء.</p><form id="trackForm"><div class="tools"><input name="order_id" placeholder="رقم الطلب مثل VK-1234ABCD" required><input name="phone" placeholder="رقم الهاتف" required></div><button type="submit">عرض حالة الطلب</button></form><div id="trackResult" class="status"></div></section>
   <section id="about" class="panel"><h2>VEKRO STORE</h2><p>تسوّق بذكاء. اختر الأفضل.</p></section>
 </main>
 <footer><strong>VEKRO STORE</strong><p>SHOP SMART. LIVE BETTER.</p><small>© <span id="year"></span> VEKRO</small></footer>
@@ -91,6 +92,11 @@ $("checkoutForm").onsubmit=async e=>{
  e.preventDefault();if(!state.cart.length)return showNotice("أضف منتجات إلى السلة أولاً.");
  const f=new FormData(e.target);const payload={customer:{name:f.get("name"),phone:f.get("phone"),address:f.get("address")},items:state.cart.map(p=>({product_id:p.id,name:p.name,quantity:1,price:p.price}))};
  try{const r=await fetch("/api/orders",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});const d=await r.json();if(!r.ok)throw new Error(d.error||"لم يتم إرسال الطلب");showNotice("تم تسجيل الطلب مبدئيًا. رقم الطلب: "+(d.order_id||"—")+" — احتفظ بالرقم وتواصل مع المتجر لتأكيده.");state.cart=[];renderCart();e.target.reset()}catch(err){showNotice(err.message)}
+};
+$("trackForm").onsubmit=async e=>{
+ e.preventDefault();const f=new FormData(e.target),box=$("trackResult");box.style.display="block";box.textContent="جارٍ البحث عن الطلب...";
+ try{const r=await fetch("/api/track",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({order_id:f.get("order_id"),phone:f.get("phone")})});const d=await r.json();if(!r.ok)throw new Error(d.error||"تعذر العثور على الطلب.");const labels={pending_confirmation:"بانتظار تأكيد المتجر",confirmed:"تم تأكيد الطلب",processing:"قيد التجهيز",shipped:"تم شحن الطلب",delivered:"تم التسليم",cancelled:"تم إلغاء الطلب"};box.textContent="الطلب "+d.order_id+" — "+(labels[d.status]||d.status);}
+ catch(err){box.textContent=err.message}
 };
 $("year").textContent=new Date().getFullYear();renderCart();loadProducts();
 </script>
