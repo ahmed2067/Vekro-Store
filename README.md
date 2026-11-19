@@ -1,25 +1,33 @@
 # VEKRO STORE
 
-Arabic RTL storefront built with Node.js 20+ and Express.
+واجهة متجر عربية RTL مبنية باستخدام Node.js 20+ وExpress.
 
-## Current features
-- Responsive storefront, product search, categories, cart and cash-on-delivery checkout.
-- Server-side Safka API proxy. The API key must remain in server environment variables.
-- The Safka public API authenticates with `api-safka-key`; public routes are under `/api/v1/public`.
+## ما يعمل حاليًا في المستودع
+- واجهة متجاوبة للمتجر مع البحث والتصنيفات والسلة.
+- نموذج طلب دفع عند الاستلام.
+- تسجيل الطلبات مبدئيًا في ملف JSON على الخادم مع رقم طلب.
+- وسيط خادمي لاستيراد المنتجات من Safka عند ضبط بيانات الاتصال ومسار المنتجات الصحيح.
 
-## Run locally
-1. Install Node.js 20+.
-2. Run `npm install`.
-3. Copy `.env.example` to `.env` and set the values.
-4. Run `npm start`.
+## ما لم يكتمل بعد
+- لوحة إدارة محمية لإدارة المنتجات والطلبات وتغيير الحالات.
+- حسابات العملاء وتسجيل الدخول وسجل الطلبات وصفحة تتبع.
+- إنشاء طلبات داخل Safka؛ لا يُفعّل ذلك قبل التحقق من مسار الإنشاء وبنية البيانات الرسمية.
+- قاعدة بيانات دائمة مناسبة للإنتاج.
 
-## Required deployment settings
-Set `SESSION_SECRET` (random, 32+ characters), `ADMIN_EMAIL`, `ADMIN_PASSWORD` (12+ characters), `NODE_ENV=production`, and `DATA_DIR` to persistent storage. Never commit `.env` or expose the Safka API key.
+## التشغيل
+1. ثبّت Node.js 20 أو أحدث.
+2. نفّذ `npm install`.
+3. انسخ `.env.example` إلى `.env` وأضف الإعدادات على الخادم فقط.
+4. نفّذ `npm start`.
 
-## Safka integration status
-Set `SAFKA_API_BASE_URL`, `SAFKA_API_KEY`, and the exact `SAFKA_PRODUCTS_PATH` from the official API reference. Product import must be tested against your Safka account. The exact order-creation schema has not been verified, so the app must not submit live orders until that is confirmed.
+## متغيرات الخادم
+- `PORT`
+- `DATA_DIR` — يجب أن يشير إلى مساحة تخزين دائمة.
+- `SAFKA_API_BASE_URL`
+- `SAFKA_API_KEY` — مفتاح سري لا يوضع في ملفات الواجهة أو GitHub.
+- `SAFKA_PRODUCTS_PATH` — مسار المنتجات الدقيق من توثيق Safka.
 
-Official docs: https://public-api-docs.safka-eg.com/
+التوثيق الرسمي: https://public-api-docs.safka-eg.com/
 
-## Deployment
-Pushing to GitHub does not itself publish a live website. A Node.js hosting service, environment variables, and persistent storage are required. The JSON-file prototype is not suitable for a high-volume production store; use a managed database before scaling.
+## تنبيه النشر
+وجود الكود على GitHub لا يعني أن الموقع منشور. يلزم ربطه بخدمة استضافة وضبط المتغيرات والتخزين الدائم. لم يتم نشر VEKRO STORE حتى الآن. تخزين الطلبات في JSON مناسب للاختبار الأولي فقط وليس متجرًا إنتاجيًا متعدد المستخدمين.
