@@ -37,7 +37,12 @@ app.get("/api/products",async(_req,res)=>{
   res.json(data);
  }catch(e){res.status(502).json({error:e.message})}
 });
-app.post("/api/orders",async(req,res)=>{
+app.post("/api/orders",(req,res,next)=>{
+ const key="order:"+String(req.ip||req.socket.remoteAddress||"unknown"),now=Date.now(),entry=loginAttempts.get(key)||{count:0,until:now+15*60*1000};
+ if(entry.until<now){entry.count=0;entry.until=now+15*60*1000}
+ if(entry.count>=5)return res.status(429).json({error:"تم تجاوز عدد الطلبات المسموح مؤقتًا. حاول لاحقًا."});
+ entry.count++;loginAttempts.set(key,entry);next();
+},async(req,res)=>{
  try{
   const c=req.body?.customer||{},name=clean(c.name,100),phone=clean(c.phone,30),address=clean(c.address,500);
   if(name.length<2||! /^[0-9+()\-\s]{7,30}$/.test(phone)||address.length<8)return res.status(400).json({error:"يرجى إدخال الاسم ورقم هاتف صحيح والعنوان بالتفصيل."});
