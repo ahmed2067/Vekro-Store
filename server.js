@@ -1,6 +1,15 @@
 require("dotenv").config();
 const express=require("express"),path=require("path"),fs=require("fs/promises"),crypto=require("crypto");
-const app=express(); app.disable("x-powered-by"); app.use(express.json({limit:"100kb"}));
+const app=express(); app.disable("x-powered-by");
+app.use((req,res,next)=>{
+ res.setHeader("X-Content-Type-Options","nosniff");
+ res.setHeader("Referrer-Policy","strict-origin-when-cross-origin");
+ res.setHeader("X-Frame-Options","DENY");
+ res.setHeader("Permissions-Policy","camera=(), microphone=(), geolocation=()");
+ if(req.path==="/admin"||req.path.startsWith("/api/admin/"))res.setHeader("Cache-Control","no-store, no-cache, must-revalidate, private");
+ next();
+});
+app.use(express.json({limit:"100kb"}));
 app.use(express.static(path.join(__dirname,"public")));
 const PORT=Number(process.env.PORT||3000),DATA_DIR=path.resolve(process.env.DATA_DIR||path.join(__dirname,"data"));
 const ORDERS_FILE=path.join(DATA_DIR,"orders.json"),PRODUCTS_FILE=path.join(DATA_DIR,"local-products.json");
