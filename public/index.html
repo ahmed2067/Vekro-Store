@@ -21,18 +21,48 @@ footer{background:#102b40;color:#d2e1e8;margin-top:35px;padding:35px 22px}.foot{
 @media(max-width:1000px){.hero-layout{grid-template-columns:1fr}.side-promos{grid-template-columns:1fr 1fr;grid-template-rows:auto}.product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:700px){.head{grid-template-columns:120px 1fr auto;gap:8px;padding:10px 12px}.brand{font-size:24px}.search{height:41px}.search button{padding:0 12px;font-size:11px}.actions button{padding:9px;font-size:10px}.nav{padding:0 12px 10px;gap:17px}.wrap{padding:13px 11px}.hero{min-height:275px;padding:25px 22px}.hero h1{font-size:34px}.hero p{font-size:12px}.side-promos{gap:8px}.promo{padding:13px;min-height:125px}.promo b{font-size:16px}.promo span{font-size:9px}.benefits{grid-template-columns:repeat(2,1fr);gap:7px}.benefit{padding:9px;gap:7px}.benefit i{font-size:18px}.benefit b{font-size:10px}.benefit small{font-size:9px}.category-row{grid-template-columns:repeat(3,1fr);gap:7px}.category{padding:11px 5px}.category .emoji{width:45px;height:45px;font-size:22px}.category b{font-size:10px}.promo-strip{padding:13px;align-items:flex-start;flex-direction:column}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.product{padding:7px}.product-image{height:135px}.product h3{font-size:11px;min-height:38px}.price{font-size:14px}.add{font-size:10px;padding:9px}.form-row{grid-template-columns:1fr}.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
 @media(max-width:390px){.head{grid-template-columns:1fr auto}.search{grid-column:1/-1;grid-row:2}.product-image{height:120px}}
+
+/* Marketplace-inspired VEKRO refresh */
+.utility{background:#101b35;color:#e9e7f5;display:flex;justify-content:space-between;gap:12px;padding:7px max(22px,calc((100% - 1316px)/2));font-size:10px}
+.utility>div:last-child{display:flex;gap:20px}.utility a{color:#e9e7f5;text-decoration:none}
+.announcement{background:#ede7ff;color:#34206c;font-weight:800}
+.head{max-width:1360px;padding-top:16px;padding-bottom:15px}
+.brand{font-size:34px}.search{border-color:#c8b8f5;background:#f9f7ff}.search button{background:var(--accent);color:#fff}
+.actions button{font-size:12px}.actions .cartbtn{background:var(--brand);color:white;border-color:var(--brand)}
+.nav{border-top:1px solid #f0edf7;padding-top:11px;padding-bottom:13px}
+.hero-layout{grid-template-columns:220px minmax(0,1fr) 250px;align-items:stretch}
+.quick-menu{background:white;border:1px solid var(--line);border-radius:8px;padding:13px 0;display:flex;flex-direction:column}
+.quick-title{font-size:13px;font-weight:900;color:var(--brand);padding:2px 15px 11px;border-bottom:1px solid var(--line);margin-bottom:5px}
+.quick-menu a{padding:10px 15px;text-decoration:none;color:#39465b;font-size:12px;font-weight:700;border-bottom:1px solid #f5f3f8}
+.quick-menu a:last-child{color:var(--brand2);border:0;font-weight:900}
+.quick-menu a:hover{background:#f5f0ff;color:var(--brand2)}
+.hero{min-height:360px;background:linear-gradient(115deg,#111d40 0%,#382276 58%,#8056dc 100%);border-radius:9px}
+.hero:after{content:"V";font-size:420px;left:3%;bottom:-130px}
+.hero button{background:#fff;color:#37216e;border-radius:5px}
+.side-promos .promo{border:1px solid #e7e1f4}
+.benefit{border-radius:6px}
+.category{border-radius:6px}
+.promo-strip{border-radius:6px;background:linear-gradient(90deg,#172554,#5132a8)}
+.product{border-radius:6px;padding:11px}
+.product-image{background:#faf9fd;border-radius:4px}
+.add{background:var(--brand);color:#fff;border-radius:4px}
+.add:hover{background:var(--brand2)}
+.section-head h2{font-size:20px;color:#172554}
+@media(max-width:1100px){.hero-layout{grid-template-columns:190px minmax(0,1fr)}.hero-layout>.side-promos{grid-column:2;grid-template-columns:1fr 1fr}.quick-menu{grid-row:1 / span 2}}
+@media(max-width:700px){.utility{padding:7px 12px;font-size:9px}.utility>div:last-child{gap:9px}.head{padding:10px 12px}.brand{font-size:27px}.hero-layout{display:flex;flex-direction:column}.quick-menu{display:none}.hero-layout>.side-promos{display:grid;grid-template-columns:1fr 1fr}.hero{min-height:260px}.hero:after{font-size:300px;bottom:-95px}.nav{border-top:0}.actions button{font-size:9px}}
 </style>
 </head>
 <body>
-<div class="announcement">أهلاً بك في <b>VEKRO STORE</b> — تسوّق بسهولة واكتشف اختياراتك الجديدة</div>
+<div class="utility"><div>مرحبًا بك في VEKRO STORE</div><div><a href="#tracking">تتبع الطلب</a><a href="#about">خدمة العملاء</a><span>الدفع عند الاستلام</span></div></div>
+<div class="announcement">عروض VEKRO مستمرة — اكتشف منتجاتك المفضلة وتسوق بسهولة</div>
 <header><div class="head">
 <a class="brand" href="#home">VEKRO<span>.</span></a>
 <div class="search"><input id="search" placeholder="ابحث عن منتج أو ماركة..."><button id="searchBtn">بحث</button></div>
-<div class="actions"><button class="cartbtn" id="openCart">🛒 السلة <span id="cartCount">0</span></button></div>
+<div class="actions"><button onclick="document.getElementById('tracking').scrollIntoView({behavior:'smooth'})">طلباتي</button><button class="cartbtn" id="openCart">🛒 السلة <span id="cartCount">0</span></button></div>
 </div><nav class="nav"><a href="#home">الرئيسية</a><a href="#categories">كل الأقسام</a><a href="#products">كل المنتجات</a><a href="#tracking">تتبع طلبك</a><a href="#about">عن VEKRO</a></nav></header>
 <main class="wrap">
 <section class="hero-layout" id="home">
-<div class="hero"><div class="hero-tag">VEKRO STORE • SHOP MORE</div><h1>كل اختياراتك<br>في مكان واحد</h1><p>اكتشف منتجات متنوعة، قارن اختياراتك، واطلب بسهولة من متجر VEKRO.</p><button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">تسوّق الآن</button></div>
+<div class="hero"><div class="hero-tag">VEKRO STORE • YOUR EVERYDAY MARKET</div><h1>كل اللي بتدور عليه<br>في مكان واحد</h1><p>اكتشف تشكيلة متنوعة من المنتجات، اختار اللي يناسبك، واطلب بسهولة من VEKRO.</p><button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">تسوّق الآن</button></div>
 <div class="side-promos"><div class="promo"><small>اختيارات VEKRO</small><b>منتجات تستحق التجربة</b><span>اكتشف الجديد عندنا</span></div><div class="promo"><small>تسوق براحة</small><b>الدفع عند الاستلام</b><span>اطلب وادفع عند وصول طلبك</span></div></div>
 </section>
 <section class="benefits"><div class="benefit"><i>🚚</i><div><b>توصيل لحد بابك</b><small>تفاصيل الشحن عند الطلب</small></div></div><div class="benefit"><i>💵</i><div><b>الدفع عند الاستلام</b><small>ادفع عند وصول طلبك</small></div></div><div class="benefit"><i>🛍️</i><div><b>منتجات متنوعة</b><small>كل اختياراتك في مكان واحد</small></div></div><div class="benefit"><i>📦</i><div><b>تتبع الطلب</b><small>تابع حالة طلبك بسهولة</small></div></div></section>
