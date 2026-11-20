@@ -1,103 +1,97 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#111c32">
-  <title>VEKRO STORE | تسوّق بذكاء</title>
-  <style>
-    :root{--navy:#111c32;--blue:#3b82f6;--cyan:#40c4ff;--ink:#172b49;--muted:#64748b;--bg:#f4f7fc;--white:#fff}
-    *{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-    header{background:var(--navy);color:white;padding:18px max(20px,calc((100% - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:18px;position:sticky;top:0;z-index:5}
-    .brand{font-size:27px;font-weight:900;letter-spacing:2px}.brand b{color:var(--cyan)}nav{display:flex;gap:20px}nav a{color:#dbeafe;text-decoration:none;font-size:14px}
-    button{border:0;border-radius:12px;padding:12px 17px;font-weight:700;cursor:pointer;background:var(--blue);color:white}
-    .cart-btn{background:#263c5d;border:1px solid #49658d}.wrap{max-width:1120px;margin:auto;padding:24px 18px}
-    .hero{background:linear-gradient(120deg,#111c32,#244b78);color:white;border-radius:26px;padding:42px;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center;overflow:hidden}
-    .eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:2px}.hero h1{font-size:clamp(30px,5vw,52px);margin:12px 0;line-height:1.25}.hero p{color:#d5dfef;line-height:1.9;max-width:520px}
-    .hero-art{min-height:210px;border-radius:22px;background:radial-gradient(circle at 50% 40%,#5db8ff 0,#28578b 38%,#172b49 72%);display:grid;place-items:center;font-size:90px}
-    .section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:30px 0 16px}.section-head h2{margin:0}
-    .tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.tools input{flex:1;min-width:190px}
-    input,textarea{width:100%;border:1px solid #d8e1ef;border-radius:12px;padding:13px;font:inherit;background:white;color:var(--ink)}
-    .filters{display:flex;gap:8px;flex-wrap:wrap}.filters button{background:#e5edf8;color:#294466}.filters button.active{background:var(--blue);color:white}
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:white;border:1px solid #e4ebf5;border-radius:18px;padding:14px;box-shadow:0 6px 22px #142d4b0a}
-    .pic{height:145px;background:#eaf3ff;border-radius:13px;display:grid;place-items:center;font-size:55px}.card h3{font-size:16px;margin:12px 0 7px}.price{font-weight:900;color:#2464b5;margin-bottom:12px}
-    .card button{width:100%}.status{padding:12px 15px;border-radius:12px;background:#e4f4ff;color:#14558c;margin:15px 0;display:none}
-    .panel{background:white;border:1px solid #e4ebf5;border-radius:18px;padding:20px;margin-top:20px}.panel h2{margin-top:0}.hidden{display:none}
-    .cart-row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #edf1f7}
-    footer{background:var(--navy);color:#c5d5ea;text-align:center;padding:30px;margin-top:45px}footer strong{color:white;font-size:22px}
-    @media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr;padding:28px}.hero-art{min-height:140px;font-size:65px}nav{display:none}}
-    @media(max-width:430px){.grid{gap:10px}.card{padding:9px}.pic{height:110px}.wrap{padding:16px 12px}}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101b32">
+<title>VEKRO STORE | تسوّق كل ما تحتاجه</title>
+<style>
+:root{--navy:#101b32;--blue:#246bdb;--cyan:#42c8e8;--yellow:#ffdf42;--bg:#f5f7fb;--ink:#18263d;--muted:#718096;--line:#e7ecf3;--white:#fff;--green:#13865c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer;border:0}
+.topline{background:#0c1426;color:#d8e5f7;text-align:center;padding:8px 12px;font-size:12px}
+header{background:var(--navy);color:white;position:sticky;top:0;z-index:20;box-shadow:0 5px 20px #0c142622}
+.head{max-width:1240px;margin:auto;padding:13px 18px;display:grid;grid-template-columns:190px 1fr auto;gap:18px;align-items:center}
+.logo{font-size:29px;font-weight:1000;letter-spacing:1px;color:white;text-decoration:none}.logo span{color:var(--cyan)}
+.searchbox{display:flex;background:white;border-radius:12px;overflow:hidden;height:44px}.searchbox input{border:0;outline:0;padding:0 15px;min-width:0;flex:1;color:#1b2c45}.searchbox button{background:var(--yellow);color:#18263d;padding:0 20px;font-weight:900}
+.head-actions{display:flex;align-items:center;gap:10px}.head-actions button{background:#243652;color:white;border:1px solid #435674;border-radius:10px;padding:11px 13px;font-weight:700}.head-actions .cart{background:var(--yellow);border-color:var(--yellow);color:#18263d}
+.nav{max-width:1240px;margin:auto;padding:0 18px 12px;display:flex;gap:22px;overflow:auto;white-space:nowrap}.nav a{color:#dce8f7;text-decoration:none;font-size:13px}.nav a:hover{color:var(--cyan)}
+.wrap{max-width:1240px;margin:auto;padding:20px 18px}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:14px}
+.hero-main{border-radius:20px;min-height:270px;padding:35px 38px;background:linear-gradient(115deg,#10203b 0%,#1d4b82 65%,#2386b9 100%);color:white;position:relative;overflow:hidden}
+.hero-main:after{content:"";position:absolute;width:270px;height:270px;border-radius:50%;background:#ffffff12;left:5%;top:-55px;box-shadow:0 0 0 35px #ffffff08,0 0 0 75px #ffffff05}
+.kicker{font-size:12px;font-weight:900;color:var(--cyan);letter-spacing:2px}.hero h1{font-size:clamp(28px,4vw,44px);line-height:1.35;margin:14px 0 8px;max-width:580px}.hero p{color:#d8e8f8;line-height:1.9;margin:0 0 20px}.primary{background:var(--yellow);color:#14233b;padding:13px 22px;border-radius:10px;font-weight:900;position:relative;z-index:1}
+.hero-side{display:grid;grid-template-rows:1fr 1fr;gap:14px}.mini-banner{border-radius:18px;padding:20px 22px;color:#17304e;background:linear-gradient(120deg,#d9f5fb,#9ee4f1);display:flex;flex-direction:column;justify-content:center}.mini-banner.dark{background:linear-gradient(120deg,#e8eaff,#b9c8ff)}.mini-banner small{font-weight:800;color:#35618c}.mini-banner b{font-size:20px;margin:7px 0}.mini-banner span{font-size:12px}
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.benefit{background:white;border:1px solid var(--line);border-radius:13px;padding:13px;display:flex;align-items:center;gap:10px}.benefit i{font-style:normal;font-size:22px}.benefit b{display:block;font-size:13px}.benefit small{color:var(--muted);font-size:11px}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:28px 0 15px;gap:10px}.section-head h2{font-size:21px;margin:0}.section-head a{color:var(--blue);font-size:13px;text-decoration:none}
+.category-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.category{background:white;border:1px solid var(--line);border-radius:15px;padding:17px 10px;text-align:center;cursor:pointer;transition:.18s}.category:hover{transform:translateY(-3px);border-color:#a8c9f5}.category .emoji{font-size:29px;display:block;margin-bottom:9px}.category b{font-size:13px}
+.promo-strip{background:linear-gradient(90deg,#11223d,#1c5688);color:white;border-radius:15px;padding:16px 22px;margin:24px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}.promo-strip strong{color:var(--yellow)}
+.tools{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}.filters{display:flex;gap:7px;flex-wrap:wrap}.filters button{padding:9px 14px;border-radius:22px;background:white;border:1px solid var(--line);color:#41536c;font-size:12px}.filters button.active{background:var(--navy);color:white;border-color:var(--navy)}
+.sort{border:1px solid var(--line);border-radius:9px;background:white;padding:9px;color:#40536e}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{background:white;border:1px solid var(--line);border-radius:15px;padding:12px;min-width:0;transition:.2s;position:relative}.card:hover{box-shadow:0 10px 25px #10284912;transform:translateY(-2px)}.pic{height:175px;border-radius:11px;background:#f2f6fb;display:grid;place-items:center;overflow:hidden;position:relative}.pic img{width:100%;height:100%;object-fit:contain}.pic .fallback{font-size:54px}.tag{position:absolute;top:9px;right:9px;background:#e6f6f0;color:#08774c;padding:5px 8px;border-radius:6px;font-size:10px;font-weight:800}.card h3{font-size:14px;line-height:1.6;min-height:44px;margin:12px 0 6px}.price{font-weight:900;font-size:17px;color:#172b48}.price small{font-size:11px;color:var(--muted);font-weight:500}.card .meta{font-size:11px;color:var(--muted);margin:7px 0 11px}.add{width:100%;border-radius:9px;background:var(--yellow);color:#1a2c48;padding:11px;font-weight:900}.add:hover{background:#f6cf20}
+.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:20px;margin:18px 0}.hidden{display:none!important}.panel h2{margin:0 0 14px;font-size:20px}.status{padding:12px 15px;border-radius:10px;background:#e8f5ff;color:#15558a;margin:14px 0;display:none}
+input,textarea{width:100%;border:1px solid #d7e1ee;border-radius:10px;padding:13px;background:white;color:var(--ink);outline-color:#80b7f5}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}.cart-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.blue-btn{background:var(--blue);color:white;border-radius:9px;padding:12px 18px;font-weight:800}
+footer{background:#0c1629;color:#c7d5e8;margin-top:38px;padding:35px 18px}.foot{max-width:1240px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}.foot strong{font-size:23px;color:white}.foot p,.foot a{font-size:12px;line-height:2;color:#bdcde2;text-decoration:none}.copyright{max-width:1240px;margin:25px auto 0;border-top:1px solid #2a3a54;padding-top:17px;color:#9fb2cb;font-size:11px}
+@media(max-width:900px){.head{grid-template-columns:140px 1fr auto;gap:10px}.hero{grid-template-columns:1fr}.hero-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}.benefits{grid-template-columns:repeat(2,1fr)}.category-row{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.topline{font-size:10px}.head{grid-template-columns:1fr auto;padding:10px 12px}.logo{font-size:25px}.searchbox{grid-column:1/-1;grid-row:2}.head-actions button{padding:9px;font-size:12px}.nav{padding:0 12px 11px;gap:17px}.wrap{padding:14px 12px}.hero-main{padding:25px 22px;min-height:250px}.hero-side{gap:9px}.mini-banner{padding:14px}.mini-banner b{font-size:16px}.benefit{padding:10px}.benefit i{font-size:19px}.benefit b{font-size:11px}.benefit small{font-size:10px}.category-row{gap:8px}.category{padding:13px 5px}.category .emoji{font-size:24px}.category b{font-size:11px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{padding:8px}.pic{height:135px}.card h3{font-size:12px;min-height:40px}.price{font-size:15px}.add{padding:10px;font-size:12px}.promo-strip{padding:14px;align-items:flex-start;flex-direction:column}.form-row{grid-template-columns:1fr}.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
+</style>
 </head>
 <body>
+<div class="topline">مرحبًا بك في VEKRO STORE — تجربة تسوّق أسهل، واختيارات أكثر</div>
 <header>
-  <div class="brand">VEKRO<b>.</b></div>
-  <nav><a href="#home">الرئيسية</a><a href="#products">المنتجات</a><a href="#about">من نحن</a></nav>
-  <button class="cart-btn" id="openCart">🛍 السلة <span id="cartCount">0</span></button>
+ <div class="head">
+  <a class="logo" href="#home">VEKRO<span>.</span></a>
+  <div class="searchbox"><input id="search" placeholder="بتدور على إيه؟ ابحث عن منتجك هنا"><button id="searchBtn">بحث</button></div>
+  <div class="head-actions"><button id="openCart" class="cart">🛒 السلة <span id="cartCount">0</span></button></div>
+ </div>
+ <nav class="nav"><a href="#home">الرئيسية</a><a href="#categories">التصنيفات</a><a href="#products">كل المنتجات</a><a href="#tracking">تتبع طلبك</a><a href="#about">عن VEKRO</a></nav>
 </header>
 <main class="wrap">
-  <section class="hero" id="home">
-    <div><div class="eyebrow">SHOP BEYOND LIMITS</div><h1>كل ما تحبه،<br>في مكان واحد.</h1><p>اكتشف منتجات متنوعة وتجربة تسوق سهلة مع VEKRO STORE.</p><button onclick="document.querySelector('#products').scrollIntoView({behavior:'smooth'})">اكتشف المنتجات ←</button></div>
-    <div class="hero-art" aria-hidden="true">✦</div>
-  </section>
-  <div id="notice" class="status"></div>
-  <section id="products">
-    <div class="section-head"><h2>اكتشف المنتجات</h2><span id="productCount" style="color:#64748b;font-size:13px"></span></div>
-    <div class="tools"><input id="search" placeholder="ابحث عن منتج..."><div class="filters" id="filters"><button class="active" data-cat="all">الكل</button></div></div>
-    <div id="productsGrid" class="grid"><p>جاري تحميل المنتجات...</p></div>
-  </section>
-  <section id="cartPanel" class="panel hidden"><h2>سلة المشتريات</h2><div id="cartItems"></div><h3 id="cartTotal">الإجمالي: 0 ج.م</h3><button id="checkoutBtn">إتمام الطلب</button></section>
-  <section id="checkoutPanel" class="panel hidden"><h2>بيانات التوصيل</h2><p style="color:#64748b">الدفع عند الاستلام — لن يُرسل الطلب إلا بعد تأكيدك.</p>
-    <form id="checkoutForm"><div class="tools"><input name="name" placeholder="الاسم بالكامل" required><input name="phone" placeholder="رقم الهاتف" required></div><textarea name="address" placeholder="العنوان بالتفصيل" required rows="3"></textarea><p><button type="submit">تأكيد الطلب</button></p></form>
-  </section>
-  <section class="panel" id="tracking"><h2>تتبّع طلبك</h2><p style="color:#64748b">أدخل رقم الطلب ورقم الهاتف المستخدم عند الشراء.</p><form id="trackForm"><div class="tools"><input name="order_id" placeholder="رقم الطلب مثل VK-1234ABCD" required><input name="phone" placeholder="رقم الهاتف" required></div><button type="submit">عرض حالة الطلب</button></form><div id="trackResult" class="status"></div></section>
-  <section id="about" class="panel"><h2>VEKRO STORE</h2><p>تسوّق بذكاء. اختر الأفضل.</p></section>
+ <section class="hero" id="home">
+  <div class="hero-main"><div class="kicker">VEKRO — YOUR EVERYDAY MARKET</div><h1>كل اللي تحتاجه…<br>في مكان واحد.</h1><p>تسوّق منتجات متنوعة بسهولة، اكتشف اختيارات جديدة، واطلب اللي يناسبك من VEKRO STORE.</p><button class="primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">ابدأ التسوّق ←</button></div>
+  <div class="hero-side"><div class="mini-banner"><small>تجربة تسوّق مريحة</small><b>اختيارات متنوعة</b><span>اكتشف المنتجات المتاحة</span></div><div class="mini-banner dark"><small>طريقة دفع بسيطة</small><b>ادفع عند الاستلام</b><span>اطلب الآن وادفع عند وصول طلبك</span></div></div>
+ </section>
+ <section class="benefits">
+  <div class="benefit"><i>🚚</i><div><b>توصيل للعنوان</b><small>تفاصيل الشحن عند تأكيد الطلب</small></div></div>
+  <div class="benefit"><i>💵</i><div><b>الدفع عند الاستلام</b><small>ادفع عند وصول طلبك</small></div></div>
+  <div class="benefit"><i>🛍️</i><div><b>منتجات متنوعة</b><small>كل اختياراتك في مكان واحد</small></div></div>
+  <div class="benefit"><i>📦</i><div><b>متابعة الطلب</b><small>تابع حالة طلبك برقم الطلب</small></div></div>
+ </section>
+ <section id="categories">
+  <div class="section-head"><h2>تسوّق حسب القسم</h2></div>
+  <div class="category-row">
+   <div class="category" data-quickcat="إلكترونيات"><span class="emoji">🎧</span><b>إلكترونيات</b></div>
+   <div class="category" data-quickcat="أزياء"><span class="emoji">👕</span><b>أزياء</b></div>
+   <div class="category" data-quickcat="منزل"><span class="emoji">🏠</span><b>المنزل</b></div>
+   <div class="category" data-quickcat="جمال"><span class="emoji">✨</span><b>جمال وعناية</b></div>
+   <div class="category" data-quickcat="رياضة"><span class="emoji">⚽</span><b>رياضة</b></div>
+   <div class="category" data-quickcat="أخرى"><span class="emoji">🎁</span><b>منتجات أخرى</b></div>
+  </div>
+ </section>
+ <div class="promo-strip"><div><strong>VEKRO STORE</strong> — اكتشف المنتجات الجديدة والمتاحة الآن</div><span>تسوّق بذكاء ✦</span></div>
+ <div id="notice" class="status"></div>
+ <section id="products">
+  <div class="section-head"><h2>كل المنتجات</h2><span id="productCount" style="color:var(--muted);font-size:12px"></span></div>
+  <div class="tools"><div class="filters" id="filters"><button class="active" data-cat="all">الكل</button></div><select class="sort" id="sort"><option value="default">ترتيب افتراضي</option><option value="low">السعر: الأقل أولًا</option><option value="high">السعر: الأعلى أولًا</option><option value="name">الاسم</option></select></div>
+  <div id="productsGrid" class="grid"><p>جاري تحميل المنتجات...</p></div>
+ </section>
+ <section id="cartPanel" class="panel hidden"><h2>سلة المشتريات</h2><div id="cartItems"></div><h3 id="cartTotal">الإجمالي: 0 ج.م</h3><button id="checkoutBtn" class="blue-btn">متابعة وإتمام الطلب</button></section>
+ <section id="checkoutPanel" class="panel hidden"><h2>بيانات التوصيل</h2><p style="color:var(--muted);font-size:13px">الدفع عند الاستلام. سيتم مراجعة الطلب وتأكيده من المتجر.</p><form id="checkoutForm"><div class="form-row"><input name="name" placeholder="الاسم بالكامل" required><input name="phone" placeholder="رقم الهاتف" required></div><textarea name="address" placeholder="العنوان بالتفصيل والمحافظة" required rows="3"></textarea><p><button class="blue-btn">تأكيد الطلب</button></p></form></section>
+ <section id="tracking" class="panel"><h2>تتبّع طلبك</h2><p style="color:var(--muted);font-size:13px">أدخل رقم الطلب ورقم الهاتف المستخدم عند الشراء لمعرفة آخر تحديث.</p><form id="trackForm"><div class="form-row"><input name="order_id" placeholder="رقم الطلب" required><input name="phone" placeholder="رقم الهاتف" required></div><button class="blue-btn">عرض حالة الطلب</button></form><div id="trackResult" class="status"></div></section>
+ <section id="about" class="panel"><h2>أهلًا بك في VEKRO STORE</h2><p style="color:var(--muted);line-height:1.9;margin:0">وجهتك للتسوّق الإلكتروني واكتشاف منتجات متنوعة. نعمل على تقديم تجربة واضحة وسهلة من اختيار المنتج وحتى متابعة الطلب.</p></section>
 </main>
-<footer><strong>VEKRO STORE</strong><p>SHOP SMART. LIVE BETTER.</p><small>© <span id="year"></span> VEKRO</small></footer>
+<footer><div class="foot"><div><strong>VEKRO<span style="color:var(--cyan)">.</span></strong><p>تسوّق بذكاء. اختيارات أكثر في مكان واحد.</p></div><div><strong style="font-size:14px">روابط سريعة</strong><p><a href="#products">المنتجات</a><br><a href="#categories">التصنيفات</a><br><a href="#tracking">تتبع الطلب</a></p></div><div><strong style="font-size:14px">خدمة العملاء</strong><p>الدفع عند الاستلام<br>تحديث حالة الطلب<br>© <span id="year"></span> VEKRO STORE</p></div></div><div class="copyright">جميع الحقوق محفوظة لـ VEKRO STORE</div></footer>
 <script>
-const state={products:[],cart:[],category:"all"};
-const money=n=>Number(n||0).toLocaleString("ar-EG")+" ج.م";
-const $=id=>document.getElementById(id);
-function showNotice(msg){$("notice").textContent=msg;$("notice").style.display="block"}
-function normalizeProduct(p){return{id:p.id??p.product_id??p._id??p.barcode,name:p.name??p.title??p.product_name??"منتج",price:Number(p.price??p.selling_price??p.sale_price??0),image:p.image??p.image_url??p.main_image??"",category:p.category?.name??p.category_name??p.category??"منتجات",raw:p}}
-function renderProducts(){
- const q=$("search").value.trim().toLowerCase();
- const list=state.products.filter(p=>(state.category==="all"||p.category===state.category)&&p.name.toLowerCase().includes(q));
- $("productCount").textContent=list.length+" منتج";
- $("productsGrid").innerHTML=list.length?list.map((p,i)=>'<article class="card"><div class="pic">'+(p.image?'<img src="'+escapeHtml(p.image)+'" alt="" style="max-width:100%;max-height:100%;object-fit:contain">':'🛍️')+'</div><h3>'+escapeHtml(p.name)+'</h3><div class="price">'+money(p.price)+'</div><button data-add="'+i+'">أضف للسلة</button></article>').join(""):'<p>لا توجد منتجات مطابقة.</p>';
- $("productsGrid").querySelectorAll("[data-add]").forEach(btn=>btn.onclick=()=>{state.cart.push(list[Number(btn.dataset.add)]);renderCart();showNotice("تمت إضافة المنتج إلى السلة.")});
-}
-function escapeHtml(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function renderCart(){
- $("cartCount").textContent=state.cart.length;
- $("cartItems").innerHTML=state.cart.length?state.cart.map((p,i)=>'<div class="cart-row"><span>'+escapeHtml(p.name)+'</span><b>'+money(p.price)+'</b><button data-remove="'+i+'" style="padding:6px 10px;background:#eaf1fb;color:#24466d">حذف</button></div>').join(""):"<p>السلة فارغة.</p>";
- $("cartItems").querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{state.cart.splice(Number(b.dataset.remove),1);renderCart()});
- $("cartTotal").textContent="الإجمالي: "+money(state.cart.reduce((s,p)=>s+p.price,0));
-}
-async function loadProducts(){
- try{
-  const r=await fetch("/api/products");const data=await r.json();if(!r.ok)throw new Error(data.error||"تعذر تحميل المنتجات");
-  const arr=Array.isArray(data)?data:(data.items||data.data||data.products||data.results||[]);
-  state.products=arr.map(normalizeProduct).filter(p=>p.name&&p.price>=0);
-  const cats=[...new Set(state.products.map(p=>p.category))];
-  $("filters").innerHTML='<button class="active" data-cat="all">الكل</button>'+cats.map(c=>'<button data-cat="'+escapeHtml(c)+'">'+escapeHtml(c)+'</button>').join("");
-  $("filters").querySelectorAll("button").forEach(b=>b.onclick=()=>{state.category=b.dataset.cat;$("filters").querySelectorAll("button").forEach(x=>x.classList.toggle("active",x===b));renderProducts()});
-  renderProducts();
- }catch(e){$("productsGrid").innerHTML="<p>لم يتم تحميل المنتجات بعد. يلزم إكمال إعدادات Safka على الخادم.</p>";showNotice(e.message)}
-}
-$("search").addEventListener("input",renderProducts);
+const state={products:[],cart:[],category:"all"};const $=id=>document.getElementById(id);const money=n=>Number(n||0).toLocaleString("ar-EG")+" ج.م";
+function notice(msg){$("notice").textContent=msg;$("notice").style.display="block"}
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function normalize(p){return{id:p.id??p.product_id??p._id??p.barcode,name:p.name??p.title??p.product_name??"منتج",price:Number(p.price??p.selling_price??p.sale_price??0),image:p.image??p.image_url??p.main_image??"",category:p.category?.name??p.category_name??p.category??"منتجات"}}
+function getFiltered(){let q=$("search").value.trim().toLowerCase();let list=state.products.filter(p=>(state.category==="all"||p.category===state.category)&&p.name.toLowerCase().includes(q));let s=$("sort").value;if(s==="low")list.sort((a,b)=>a.price-b.price);if(s==="high")list.sort((a,b)=>b.price-a.price);if(s==="name")list.sort((a,b)=>a.name.localeCompare(b.name,"ar"));return list}
+function render(){let list=getFiltered();$("productCount").textContent=list.length+" منتج";$("productsGrid").innerHTML=list.length?list.map((p,i)=>'<article class="card"><div class="pic">'+(p.image?'<img src="'+esc(p.image)+'" alt="'+esc(p.name)+'" loading="lazy">':'<span class="fallback">🛍️</span>')+'<span class="tag">متاح للطلب</span></div><h3>'+esc(p.name)+'</h3><div class="price">'+money(p.price)+'</div><div class="meta">الدفع عند الاستلام · VEKRO STORE</div><button class="add" data-add="'+i+'">أضف إلى السلة</button></article>').join(""):'<p>لا توجد منتجات مطابقة حاليًا.</p>';$("productsGrid").querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{state.cart.push(list[Number(b.dataset.add)]);cart();notice("تمت إضافة المنتج إلى سلة المشتريات.")})}
+function cart(){$("cartCount").textContent=state.cart.length;$("cartItems").innerHTML=state.cart.length?state.cart.map((p,i)=>'<div class="cart-row"><span>'+esc(p.name)+'</span><b>'+money(p.price)+'</b><button data-remove="'+i+'" style="background:#edf2f8;color:#29466c;padding:7px 10px;border-radius:7px">حذف</button></div>').join(""):"<p>السلة فارغة.</p>";$("cartItems").querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{state.cart.splice(Number(b.dataset.remove),1);cart()});$("cartTotal").textContent="الإجمالي: "+money(state.cart.reduce((s,p)=>s+p.price,0))}
+async function load(){try{let r=await fetch("/api/products");let d=await r.json();if(!r.ok)throw Error(d.error||"تعذر تحميل المنتجات");let a=Array.isArray(d)?d:(d.items||d.data||d.products||d.results||[]);state.products=a.map(normalize).filter(p=>p.name&&Number.isFinite(p.price));let cats=[...new Set(state.products.map(p=>p.category))];$("filters").innerHTML='<button class="active" data-cat="all">الكل</button>'+cats.map(c=>'<button data-cat="'+esc(c)+'">'+esc(c)+'</button>').join("");$("filters").querySelectorAll("button").forEach(b=>b.onclick=()=>{state.category=b.dataset.cat;$("filters").querySelectorAll("button").forEach(x=>x.classList.toggle("active",x===b));render()});render()}catch(e){$("productsGrid").innerHTML="<p>المنتجات غير متاحة حاليًا. يلزم إكمال إعداد ربط مصدر المنتجات.</p>";notice(e.message)}}
+$("search").oninput=render;$("searchBtn").onclick=render;$("sort").onchange=render;
 $("openCart").onclick=()=>{$("cartPanel").classList.toggle("hidden");$("cartPanel").scrollIntoView({behavior:"smooth"})};
 $("checkoutBtn").onclick=()=>{$("checkoutPanel").classList.remove("hidden");$("checkoutPanel").scrollIntoView({behavior:"smooth"})};
-$("checkoutForm").onsubmit=async e=>{
- e.preventDefault();if(!state.cart.length)return showNotice("أضف منتجات إلى السلة أولاً.");
- const f=new FormData(e.target);const payload={customer:{name:f.get("name"),phone:f.get("phone"),address:f.get("address")},items:state.cart.map(p=>({product_id:p.id,name:p.name,quantity:1,price:p.price}))};
- try{const r=await fetch("/api/orders",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});const d=await r.json();if(!r.ok)throw new Error(d.error||"لم يتم إرسال الطلب");showNotice("تم تسجيل الطلب مبدئيًا. رقم الطلب: "+(d.order_id||"—")+" — احتفظ بالرقم وتواصل مع المتجر لتأكيده.");state.cart=[];renderCart();e.target.reset()}catch(err){showNotice(err.message)}
-};
-$("trackForm").onsubmit=async e=>{
- e.preventDefault();const f=new FormData(e.target),box=$("trackResult");box.style.display="block";box.textContent="جارٍ البحث عن الطلب...";
- try{const r=await fetch("/api/track",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({order_id:f.get("order_id"),phone:f.get("phone")})});const d=await r.json();if(!r.ok)throw new Error(d.error||"تعذر العثور على الطلب.");const labels={pending_confirmation:"بانتظار تأكيد المتجر",confirmed:"تم تأكيد الطلب",processing:"قيد التجهيز",shipped:"تم شحن الطلب",delivered:"تم التسليم",cancelled:"تم إلغاء الطلب"};box.textContent="الطلب "+d.order_id+" — "+(labels[d.status]||d.status);}
- catch(err){box.textContent=err.message}
-};
-$("year").textContent=new Date().getFullYear();renderCart();loadProducts();
+document.querySelectorAll("[data-quickcat]").forEach(el=>el.onclick=()=>{let c=el.dataset.quickcat;let match=state.products.find(p=>p.category.includes(c));if(match){state.category=match.category;$("filters").querySelectorAll("button").forEach(b=>b.classList.toggle("active",b.dataset.cat===state.category))}else{state.category="all";notice("سيظهر هذا القسم عند توفر منتجاته.")}render();$("products").scrollIntoView({behavior:"smooth"})});
+$("checkoutForm").onsubmit=async e=>{e.preventDefault();if(!state.cart.length)return notice("أضف منتجات إلى السلة أولًا.");let f=new FormData(e.target);let payload={customer:{name:f.get("name"),phone:f.get("phone"),address:f.get("address")},items:state.cart.map(p=>({product_id:p.id,name:p.name,quantity:1,price:p.price}))};try{let r=await fetch("/api/orders",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});let d=await r.json();if(!r.ok)throw Error(d.error||"لم يتم تسجيل الطلب");notice("تم تسجيل الطلب. رقم الطلب: "+(d.order_id||"—")+" — احتفظ بالرقم لمتابعته.");state.cart=[];cart();e.target.reset()}catch(err){notice(err.message)}};
+$("trackForm").onsubmit=async e=>{e.preventDefault();let f=new FormData(e.target),box=$("trackResult");box.style.display="block";box.textContent="جارٍ البحث...";try{let r=await fetch("/api/track",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({order_id:f.get("order_id"),phone:f.get("phone")})});let d=await r.json();if(!r.ok)throw Error(d.error||"تعذر العثور على الطلب");let labels={pending_confirmation:"بانتظار تأكيد المتجر",confirmed:"تم تأكيد الطلب",processing:"قيد التجهيز",shipped:"تم شحن الطلب",delivered:"تم التسليم",cancelled:"تم إلغاء الطلب"};box.textContent="الطلب "+d.order_id+" — "+(labels[d.status]||d.status)}catch(err){box.textContent=err.message}};
+$("year").textContent=new Date().getFullYear();cart();load();
 </script>
 </body></html>
